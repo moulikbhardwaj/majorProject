@@ -30,6 +30,6 @@ data['who_is'] = data['who_is'].apply(
     lambda x: (True if x == 'complete' else False))
 data['https'] = data['https'].apply(lambda x: (True if x == 'yes' else False))
 data = data[['url_len', 'ip_add', 'geo_loc', 'tld', 'who_is',
-             'https', 'js_len', 'js_obf_len', 'content', 'hopCount']]
+             'https', 'js_len', 'js_obf_len', 'hopCount', 'content']]
 
 print(clf.predict(pd.DataFrame(data, index=[0])))
