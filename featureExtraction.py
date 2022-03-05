@@ -100,7 +100,7 @@ def extractAllFeatures(url: str) -> dict:
         "who_is": getwhois(ip),
         "https": getHTTPS(url),
         **getContentInfo(url),
-        "hopCount": getHopCount(url)
+        "hopCount": 15
     }
 
 if __name__=="__main__":
