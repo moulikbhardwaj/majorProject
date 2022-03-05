@@ -20,8 +20,10 @@ with open("tldEncoder.pkl", "rb") as file:
     tldEncoder: LabelEncoder = pickle.load(file)
 
 
-# url = input("Please enter url\n").strip()
-url = sys.argv[1].strip()
+if len(sys.argv) >= 2:
+    url = sys.argv[1].strip()
+else:
+    url = input("Please enter url\n").strip()
 
 data = extractAllFeatures(url)
 data = pd.DataFrame(data, index=[0])
