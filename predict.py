@@ -1,5 +1,6 @@
 import pickle
 import pandas as pd
+import sys
 
 from sklearn.ensemble import VotingClassifier
 from sklearn.preprocessing import LabelEncoder
@@ -7,7 +8,7 @@ from sklearn.preprocessing import LabelEncoder
 from featureExtraction import extractAllFeatures
 
 with open("model.pkl", "rb") as file:
-    clf:VotingClassifier = pickle.load(file)
+    clf: VotingClassifier = pickle.load(file)
 
 with open("ipEncoder.pkl", "rb") as file:
     ipEncoder: LabelEncoder = pickle.load(file)
@@ -19,7 +20,8 @@ with open("tldEncoder.pkl", "rb") as file:
     tldEncoder: LabelEncoder = pickle.load(file)
 
 
-url = input("Please enter url\n").strip()
+# url = input("Please enter url\n").strip()
+url = sys.argv[1].strip()
 
 data = extractAllFeatures(url)
 data = pd.DataFrame(data, index=[0])
